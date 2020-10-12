@@ -62,14 +62,10 @@ void print(vector<ll> arr)
 void solve()
 {
 
-	ll n;
-	read(n);
-	vector<ll> arr(n);
-	read(arr);
-	sort(arr);
-	print(arr);
-	sortDesc(arr);
-	print(arr);
+
+
+
+
 
 
 
