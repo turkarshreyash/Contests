@@ -22,15 +22,12 @@ Shreyash H. Turkar
 using namespace std;
 
 typedef long long ll;
+typedef long double ld;
 typedef vector<ll> vi;
 typedef priority_queue<ll> hpq;
 typedef priority_queue<ll, vi, greater<ll>> lpq;
 
-#ifdef ONLINE_JUDGE
 #define bug(x) cout << #x << ":" << x;
-#else
-#define bug(x)
-#endif
 #define line cout << "\n";
 #define pb push_back
 #define mk make_pair
@@ -53,19 +50,29 @@ Mediocrity will never do. You are capable of something better.
 */
 void solve()
 {
-	ll n;
-	cin>>n;
-	bug(n);
+    ll n;
+    ll sum = 0;
+    ll maxx = 0;
+    cin>>n;
+    REP(i,0,n){
+        ll temp;
+        cin>>temp;
+        sum += temp;
+        maxx = max(maxx,temp);
+    }
+    ll dis = ceil((ld)sum/(n-1));
+    dis = max(dis,maxx);
+    cout<<dis*(n-1)-sum;
 }
 
 int main()
 {
  ios::sync_with_stdio(0);
-	cin.tie(0);
-	ll ct;
-	cin>>ct;
-	REP(t,0,ct){
-		solve();
-		line;
-	}
+    cin.tie(0);
+    ll ct;
+    cin>>ct;
+    REP(t,0,ct){
+        solve();
+        line;
+    }
 }
