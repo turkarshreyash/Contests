@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "complex": "cpp"
+        "complex": "cpp",
+        "random": "cpp",
+        "vector": "cpp"
     }
 }
