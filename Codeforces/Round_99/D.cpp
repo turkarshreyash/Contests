@@ -50,6 +50,16 @@ const ll inf = numeric_limits<ll>::max();
 const ll mod = 1e9 + 7;
 const ll maxN = 1e5;
 
+
+bool sorted(const vi &arr, ll s){
+    REP(i,s,arr.size()-1){
+        if(arr[i] > arr[i+1]){
+            return false;
+        }
+    }
+    return true;
+}
+
 /*
 If you fall behind, run faster. Never give up, never surrender. Rise up against the odds
 Mediocrity will never do. You are capable of something better.
@@ -63,32 +73,23 @@ void solve()
         cin>>i;
     }
     ll count = 0;
-    bool sorted = true;
-    for(int i = 1 ; i < n ; ++i){
-        if(arr[i-1]>arr[i]){
-            sorted = false; 
+    ll maxx = 0;
+    REP(i,0,n){
+        if(sorted(arr,i) == true && arr[i] >= maxx){
+            cout<<count;
+            return;
         }
-    }
-    if(sorted){
-        cout<<0;
-        return;
-    }
-    for(ll i = 0 ; i < n ; ++i){
-        if(arr[i] > x){
-
-            for(ll j = i ; j < n ; ++j){
-
-            }
-            swap(x,arr[i]);
-            ++count;
-        }else if(arr[i] < x && i != 0 && arr[i-1] > arr[i]){
+        if(arr[i] < maxx && x > arr[i]){
             cout<<-1;
             return;
         }
+        if(arr[i] > x){
+            swap(arr[i],x);
+            ++count;
+        }
+        maxx = max(maxx,arr[i]);
     }
     cout<<count;
-
-    
 }
 
 int main()
